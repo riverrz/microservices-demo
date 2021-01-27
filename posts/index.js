@@ -18,7 +18,7 @@ app.post("/posts", async (req, res) => {
   const { title } = req.body;
   posts[id] = { title, id };
 
-  await axios.post("http://localhost:4005/events", {
+  await axios.post("http://event-bus-srv:4005/events", {
     type: "PostCreated",
     data: posts[id],
   });
@@ -27,6 +27,8 @@ app.post("/posts", async (req, res) => {
 });
 
 app.post("/events", (req, res) => {
+  const event = req.body;
+  console.log(event);
   res.send({});
 });
 
