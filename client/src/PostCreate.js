@@ -6,7 +6,7 @@ function PostCreate() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    await axios.post("http://posts.com/posts", { title });
+    await axios.post("http://posts.com/posts/create", { title });
 
     setTitle("");
   }
